@@ -9,7 +9,54 @@
   <!-- Font Awesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Barra de progreso de scroll */
+    /* Variables de tema */
+    :root {
+      --bg-color: #1a1a1a;
+      --gradient-start: #1a1a1a;
+      --gradient-end: #333;
+      --text-color: #fff;
+      --accent-color: #0ff;
+      --header-bg: rgba(0, 0, 0, 0.8);
+      --nav-bg: rgba(0, 0, 0, 0.9);
+      --section-bg: rgba(255, 255, 255, 0.1);
+      --footer-bg: rgba(0, 0, 0, 0.9);
+    }
+    .light-theme {
+      --bg-color: #f5f5f5;
+      --gradient-start: #f5f5f5;
+      --gradient-end: #e0e0e0;
+      --text-color: #333;
+      --accent-color: #007acc;
+      --header-bg: rgba(255, 255, 255, 0.9);
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --section-bg: rgba(0, 0, 0, 0.05);
+      --footer-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Cursor personalizado */
+    body, a, button {
+      cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCI+PHBhdGggZD0iTTEwIDVBOCA4IDAgMCAwIDAgNUg5QTkgOSAwIDAgMCA5IDVBQTkgOSAwIDAgMCA5IDVIMTB6IiBmaWxsPSIjMDBmZiIgLz48L3N2Zz4='), auto;
+    }
+
+    /* Parallax de fondo */
+    .parallax {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==") repeat;
+      background-size: 40px 40px;
+      opacity: 0.1;
+      z-index: -2;
+      background-attachment: fixed;
+    }
+
+    /* Barra de progreso */
     #progressContainer {
       position: fixed;
       top: 0;
@@ -21,21 +68,23 @@
     }
     #progressBar {
       height: 5px;
-      background: #0ff;
+      background: var(--accent-color);
       width: 0%;
     }
+
     /* Animación de fade in */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     /* Estilos generales */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #333);
-      color: #fff;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: var(--text-color);
       line-height: 1.6;
       position: relative;
       min-height: 100vh;
@@ -56,9 +105,10 @@
       z-index: -1;
     }
     header {
+      position: relative;
       text-align: center;
       padding: 2rem 1rem;
-      background: rgba(0, 0, 0, 0.8);
+      background: var(--header-bg);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     }
     header h1 {
@@ -71,15 +121,29 @@
       margin: 0.5rem 0;
       font-size: 1.3rem;
     }
+    /* Botón para alternar tema */
+    #themeToggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      transition: color 0.3s;
+    }
+    #themeToggle:hover {
+      color: var(--text-color);
+    }
     nav {
       display: flex;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.9);
+      background: var(--nav-bg);
       padding: 1rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     nav a {
-      color: #0ff;
+      color: var(--accent-color);
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
@@ -91,13 +155,13 @@
       position: absolute;
       width: 0;
       height: 2px;
-      background: #0ff;
+      background: var(--accent-color);
       left: 0;
       bottom: -5px;
       transition: width 0.3s;
     }
     nav a:hover {
-      color: #fff;
+      color: var(--text-color);
       transform: translateY(-3px);
     }
     nav a:hover::after {
@@ -125,7 +189,7 @@
     }
     section {
       margin-bottom: 2rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--section-bg);
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -135,7 +199,7 @@
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.2rem;
-      border-bottom: 2px solid #0ff;
+      border-bottom: 2px solid var(--accent-color);
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
@@ -151,7 +215,7 @@
     ul {
       margin: 0.5rem 0 0 1.5rem;
     }
-    /* Timeline para la sección de Experiencia */
+    /* Timeline para la sección de Experiencia (mostrando siempre la información) */
     .timeline {
       position: relative;
       margin-left: 40px;
@@ -164,7 +228,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: #0ff;
+      background: var(--accent-color);
     }
     .timeline-item {
       position: relative;
@@ -185,7 +249,13 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: #0ff;
+      background: var(--accent-color);
+    }
+    /* Se elimina el comportamiento colapsable: el contenido siempre se muestra */
+    .timeline-content {
+      /* Ahora siempre visible */
+      max-height: none;
+      overflow: visible;
     }
     /* Sección de Habilidades en grid */
     .habilidades {
@@ -202,7 +272,7 @@
       margin-bottom: 0.5rem;
       font-family: 'Orbitron', sans-serif;
       font-size: 1.4rem;
-      color: #0ff;
+      color: var(--accent-color);
     }
     .habilidades .skill-category ul {
       list-style: none;
@@ -215,15 +285,16 @@
     }
     .habilidades .skill-category ul li i {
       margin-right: 0.5rem;
-      color: #0ff;
+      color: var(--accent-color);
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background: rgba(0, 0, 0, 0.9);
+      background: var(--footer-bg);
       font-size: 0.9rem;
       box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
     }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       nav {
@@ -246,6 +317,8 @@
   </style>
 </head>
 <body>
+  <!-- Parallax de fondo -->
+  <div class="parallax"></div>
   <!-- Barra de progreso -->
   <div id="progressContainer">
     <div id="progressBar"></div>
@@ -253,6 +326,8 @@
   <header>
     <h1>Luis Mora</h1>
     <p>Ingeniero Informático | Bogotá D.C. Colombia</p>
+    <!-- Botón para alternar tema -->
+    <button id="themeToggle" title="Cambiar Tema"><i class="fas fa-adjust"></i></button>
   </header>
   <nav>
     <a href="#perfil">Perfil</a>
@@ -274,49 +349,55 @@
             Destacado por la gestión técnica, el soporte integral a áreas operativas y el fortalecimiento de la presencia digital de las marcas.
           </p>
         </section>
-        <!-- Experiencia Profesional (Timeline) -->
+        <!-- Experiencia Profesional (Timeline sin comportamiento colapsable) -->
         <section id="experiencia">
           <h2>Experiencia Profesional</h2>
           <div class="timeline">
             <div class="timeline-item">
               <h3>Coordinador IT - Texas Oil Tech Laboratories Ltda</h3>
-              <p><strong>Fecha:</strong> 24-Sep-2019 – 29-Mar-2022</p>
-              <p><strong>Funciones:</strong></p>
-              <ul>
-                <li>Planificación, organización, coordinación, ejecución y control de los sistemas informativos.</li>
-                <li>Manejo de programas, renovaciones, comunicaciones e innovaciones tecnológicas.</li>
-                <li>Desarrollo de un sistema de tickets en PHP (arquitectura MVC) para solicitudes ágiles.</li>
-              </ul>
+              <div class="timeline-content">
+                <p><strong>Fecha:</strong> 24-Sep-2019 – 29-Mar-2022</p>
+                <p><strong>Funciones:</strong></p>
+                <ul>
+                  <li>Planificación, organización, coordinación, ejecución y control de los sistemas informativos.</li>
+                  <li>Manejo de programas, renovaciones, comunicaciones e innovaciones tecnológicas.</li>
+                  <li>Desarrollo de un sistema de tickets en PHP (arquitectura MVC) para solicitudes ágiles.</li>
+                </ul>
+              </div>
             </div>
             <div class="timeline-item">
               <h3>Coordinador Matrix-D - Escol Group SAS</h3>
-              <p><strong>Fecha:</strong> 05-May-2020 – 29-Mar-2022</p>
-              <p><strong>Funciones:</strong></p>
-              <ul>
-                <li>Gestión técnica, científica y comercial, brindando soporte a todas las áreas.</li>
-                <li>Supervisión del funcionamiento de software y hardware.</li>
-                <li>Liderazgo en el desarrollo de aplicaciones móviles y páginas web.</li>
-                <li>Coordinación de la presencia digital de las marcas.</li>
-              </ul>
-              <p><strong>Logros:</strong></p>
-              <ul>
-                <li>Desarrollo y lanzamiento de sitios web: wfluidsytech, tol-lp, albas, escol-group, bio-7.com, escolchemicals.</li>
-              </ul>
+              <div class="timeline-content">
+                <p><strong>Fecha:</strong> 05-May-2020 – 29-Mar-2022</p>
+                <p><strong>Funciones:</strong></p>
+                <ul>
+                  <li>Gestión técnica, científica y comercial, brindando soporte a todas las áreas.</li>
+                  <li>Supervisión del funcionamiento de software y hardware.</li>
+                  <li>Liderazgo en el desarrollo de aplicaciones móviles y páginas web.</li>
+                  <li>Coordinación de la presencia digital de las marcas.</li>
+                </ul>
+                <p><strong>Logros:</strong></p>
+                <ul>
+                  <li>Desarrollo y lanzamiento de sitios web: wfluidsytech, tol-lp, albas, escol-group, bio-7.com, escolchemicals.</li>
+                </ul>
+              </div>
             </div>
             <div class="timeline-item">
               <h3>Asistente de Tecnología - Frosch Travel Colombia</h3>
-              <p><strong>Fecha:</strong> Junio 2022 – Actualidad</p>
-              <p><strong>Funciones:</strong></p>
-              <ul>
-                <li>Análisis y resolución de incidencias en hardware, software y redes.</li>
-                <li>Reestructuración y optimización del código migrándolo a una arquitectura limpia (MVC).</li>
-                <li>Diseño y desarrollo de soluciones digitales que automatizan procesos operativos.</li>
-                <li>Capacitación y soporte técnico al equipo.</li>
-              </ul>
-              <p><strong>Logros:</strong></p>
-              <ul>
-                <li>Modernización del código y optimización de procesos internos.</li>
-              </ul>
+              <div class="timeline-content">
+                <p><strong>Fecha:</strong> Junio 2022 – Actualidad</p>
+                <p><strong>Funciones:</strong></p>
+                <ul>
+                  <li>Análisis y resolución de incidencias en hardware, software y redes.</li>
+                  <li>Reestructuración y optimización del código migrándolo a una arquitectura limpia (MVC).</li>
+                  <li>Diseño y desarrollo de soluciones digitales que automatizan procesos operativos.</li>
+                  <li>Capacitación y soporte técnico al equipo.</li>
+                </ul>
+                <p><strong>Logros:</strong></p>
+                <ul>
+                  <li>Modernización del código y optimización de procesos internos.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -402,7 +483,7 @@
     <p>Creado con pasión y tecnología</p>
   </footer>
   <script>
-    // Actualización de la barra de progreso al hacer scroll
+    // Actualiza la barra de progreso al hacer scroll
     window.onscroll = function() { 
       var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -410,21 +491,22 @@
       document.getElementById("progressBar").style.width = scrolled + "%";
     };
 
-    // Intersection Observer para animar los elementos de la línea de tiempo
+    // Intersection Observer para animar la aparición de cada ítem de la línea de tiempo
     const timelineItems = document.querySelectorAll('.timeline-item');
-    const observerOptions = {
-      threshold: 0.2
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if(entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
-    timelineItems.forEach(item => {
-      observer.observe(item);
+    timelineItems.forEach(item => observer.observe(item));
+
+    // Alternar tema oscuro/claro
+    document.getElementById("themeToggle").addEventListener("click", function() {
+      document.body.classList.toggle("light-theme");
     });
   </script>
 </body>
