@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luis Mora - Ingeniero Informático</title>
+  <!-- Fuentes futuristas desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: #fff;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+    }
+    /* Firma de fondo */
+    body::before {
+      content: "Luis Mora";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10rem;
+      color: rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: -1;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #222;
+      padding: 1rem;
+    }
+    nav a {
+      color: #0ff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    /* Diseño en dos columnas */
+    .columns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .left-column {
+      flex: 2;
+      min-width: 300px;
+    }
+    .right-column {
+      flex: 1;
+      min-width: 250px;
+    }
+    section {
+      margin-bottom: 3rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      border-bottom: 2px solid #0ff;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .experiencia h3, .educacion h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .experiencia p, .educacion p, .habilidades p {
+      margin: 0.3rem 0;
+    }
+    ul {
+      margin: 0.5rem 0 0 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 0.5rem 0;
+      }
+      .columns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Luis Mora</h1>
+    <p>Ingeniero Informático | Bogotá D.C. Colombia</p>
+  </header>
+  <nav>
+    <a href="#perfil">Perfil</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#educacion">Educación</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#habilidades">Habilidades</a>
+  </nav>
+  <div class="container">
+    <div class="columns">
+      <!-- Columna izquierda -->
+      <div class="left-column">
+        <!-- Sección de Perfil Profesional -->
+        <section id="perfil">
+          <h2>Perfil Profesional</h2>
+          <p>
+            Ingeniero Informático con amplia experiencia en la coordinación de sistemas informativos y proyectos tecnológicos.
+            Especializado en planificación, organización, ejecución y control de sistemas, desarrollo de software, aplicaciones móviles y estrategias digitales.
+            Destacado por la gestión técnica, el soporte integral a áreas operativas y el fortalecimiento de la presencia digital de las marcas.
+          </p>
+        </section>
+        <!-- Sección de Experiencia Profesional -->
+        <section id="experiencia">
+          <h2>Experiencia Profesional</h2>
+          <div class="experiencia">
+            <h3>Coordinador IT - Texas Oil Tech Laboratories Ltda</h3>
+            <p><strong>Fecha:</strong> 24-Sep-2019 – 29-Mar-2022</p>
+            <p><strong>Funciones:</strong></p>
+            <ul>
+              <li>Planificación, organización, coordinación, ejecución y control de los sistemas informativos.</li>
+              <li>Manejo de programas, renovaciones, comunicaciones e innovaciones tecnológicas.</li>
+              <li>Desarrollo de un sistema de tickets en PHP (arquitectura MVC) para solicitudes ágiles.</li>
+            </ul>
+          </div>
+          <div class="experiencia">
+            <h3>Coordinador Matrix-D - Escol Group SAS</h3>
+            <p><strong>Fecha:</strong> 05-May-2020 – 29-Mar-2022</p>
+            <p><strong>Funciones:</strong></p>
+            <ul>
+              <li>Gestión técnica, científica y comercial, brindando soporte a todas las áreas.</li>
+              <li>Supervisión del funcionamiento de software y hardware.</li>
+              <li>Liderazgo en el desarrollo de aplicaciones móviles y páginas web.</li>
+              <li>Coordinación de la presencia digital de las marcas.</li>
+            </ul>
+            <p><strong>Logros:</strong></p>
+            <ul>
+              <li>Desarrollo y lanzamiento de sitios web: wfluidsytech, tol-lp, albas, escol-group, bio-7.com, escolchemicals.</li>
+            </ul>
+          </div>
+          <div class="experiencia">
+            <h3>Asistente de Tecnología - Frosch Travel Colombia</h3>
+            <p><strong>Fecha:</strong> Junio 2022 – Actualidad</p>
+            <p><strong>Funciones:</strong></p>
+            <ul>
+              <li>Análisis y resolución de incidencias en hardware, software y redes.</li>
+              <li>Reestructuración y optimización del código migrándolo a una arquitectura limpia (MVC).</li>
+              <li>Diseño y desarrollo de soluciones digitales que automatizan procesos operativos.</li>
+              <li>Capacitación y soporte técnico al equipo.</li>
+            </ul>
+            <p><strong>Logros:</strong></p>
+            <ul>
+              <li>Modernización del código y optimización de procesos internos.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <!-- Columna derecha -->
+      <div class="right-column">
+        <!-- Sección de Educación -->
+        <section id="educacion">
+          <h2>Educación</h2>
+          <div class="educacion">
+            <p><strong>INGENIERO INFORMATICO</strong> - ESEIT (2025)</p>
+            <p><strong>ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</strong> - SENA (2019)</p>
+            <p><strong>METODOLOGIA DE LA PROGRAMACION DE SISTEMAS INFORMATICOS</strong> - SENA (2020)</p>
+            <p><strong>ENFOQUE Y TENDENCIAS DE LOS NEGOCIOS ELECTRONICOS</strong> - SENA (2020)</p>
+          </div>
+        </section>
+        <!-- Sección de Contacto -->
+        <section id="contacto">
+          <h2>Contacto</h2>
+          <p><i class="fas fa-envelope"></i> <strong>Email:</strong> pipemora30@gmail.com</p>
+          <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> (+57) 318 603 0772</p>
+        </section>
+        <!-- Sección de Habilidades -->
+        <section id="habilidades">
+          <h2>Habilidades</h2>
+          <div class="habilidades">
+            <p><strong>Áreas:</strong> Desarrollo de Software, Apps Móviles, Estrategias Digitales, Sistemas Informativos.</p>
+            <p><strong>Lenguajes de Programación:</strong> 
+              <i class="fas fa-code"></i> C#, 
+              <i class="fas fa-coffee"></i> JAVA, 
+              <i class="fab fa-js-square"></i> JAVASCRIPT, 
+              <i class="fab fa-php"></i> PHP, 
+              <i class="fas fa-database"></i> MYSQL, 
+              <i class="fas fa-leaf"></i> MONGODB, 
+              <i class="fab fa-angular"></i> ANGULAR, 
+              <i class="fab fa-node-js"></i> NODEJS.
+            </p>
+            <p><strong>Programas:</strong> 
+              <i class="fab fa-microsoft"></i> Office 365, 
+              <i class="fas fa-cloud"></i> Azure DevOps, 
+              <i class="fab fa-git-alt"></i> Git, 
+              <i class="fas fa-code"></i> VS Code, 
+              <i class="fas fa-chart-bar"></i> Power BI.
+            </p>
+            <p><strong>Idiomas:</strong> Español (C1), Inglés (A2).</p>
+            <p><strong>Intereses:</strong> Deportes, Cine, Música, Lectura, Arte.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Luis Mora - Ingeniero Informático</p>
+    <p>Creado con pasión y tecnología</p>
+  </footer>
+</body>
+</html>
